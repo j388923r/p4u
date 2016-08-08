@@ -1,0 +1,12 @@
+﻿body {
+    background-color: black;
+    color: white;
+}
+
+.blackSquare {
+    background-color: black;
+}
+
+.whiteSquare {
+    background-color: white;
+}

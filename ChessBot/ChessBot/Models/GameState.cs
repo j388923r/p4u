@@ -21,7 +21,7 @@ namespace ChessBot.Models
                 {
                     returnText += (Char.IsUpper(currentBoard[i, j]) && currentBoard[i, j] != ChessBoard.eSC) ? String.Format("**{0}** ", currentBoard[i, j]) : currentBoard[i, j] + " ";
                 }
-                returnText += "\n\r";
+                returnText += Environment.NewLine;
             }
 
             return returnText;
