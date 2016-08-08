@@ -1,0 +1,56 @@
+﻿<section>
+    <div class="row">
+        <div class="pull-right">
+            <div class="dropdownButton dropdown" ng-show="user.username">
+                <a href="/#/profile">{{user.Name || user.username}}</a>
+                <button class="dropdown-toggle" type="button" id="profileMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="profileMenu">              
+                    <li>Logout</li>
+                </ul>
+            </div>
+            <div class="login" ng-hide="user.username">
+                <a ng-click="openModal('signup')">Sign Up</a>
+                <a ng-click="openModal('login')">Login</a>
+            </div>
+        </div>
+    </div>
+    <header-directive></header-directive>
+    <div class="row">
+        <div class="col-md-6 piece">
+            <div class="title"><a href="{{featuredpiece.p4cmlink}}" target="_blank">{{featuredpiece.title}}</a></div>
+            <div class=" author">by: {{featuredpiece.artist}}</div>
+            <p class="content">
+                <span ng-repeat="component in featuredpiece.components">
+                    <span class="{{component.type}}" ng-bind-html="component.text" ng-click="selectComponent($index)"></span>
+                </span>
+            </p>
+            <div>Uploaded by: {{featuredpiece.owner}} on {{featuredpiece.uploadDate | date: medium}}</div>
+        </div>
+        <div class="col-md-6 annotation">
+            <div ng-class="selectedComponent.referenceType" ng-show="selectedComponent.annotationHTML">
+                <span ng-bind-html="selectedComponent.annotationHTML"></span>
+            </div>
+        </div>
+    </div>
+    <!--<script type="text/ng-template" id="loginModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Login On Page</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Username: </label>
+                <input class="form-control" ng-model="username" /><br />
+            </div>
+            <div class="form-group">
+                <label>Password: </label>
+                <input class="form-control" ng-model="password" /><br />
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">Login</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>-->
+</section>

@@ -1,0 +1,33 @@
+﻿<section>
+    <header-directive></header-directive>
+
+    <uib-tabset>
+        <uib-tab>
+            <uib-tab-heading>
+                Edit Suggestions <span class="badge" ng-show="user.suggestions.length !== 0">{{user.suggestions.length}}</span>
+            </uib-tab-heading>
+            <div class="suggestion" ng-repeat="suggestion in user.suggestions">
+                <h3>{{suggestion.piece.title}}</h3>
+                <div>Correction by: {{suggestion.source}}</div>
+                <br />
+                <div ng-show="suggestion.pieceIndex !== 0" ng-bind-html="suggestion.piece.components[suggestion.pieceIndex - 1].text"></div>
+                <div>
+                    <span style="background-color:yellow">
+                        {{suggestion.piece.components[suggestion.pieceIndex].text}}
+                    </span>
+                </div>
+                <div ng-show="suggestion.piece.components.length !== (suggestion.pieceIndex + 1)" ng-bind-html="suggestion.piece.components[suggestion.pieceIndex + 1].text"></div>
+                <br />
+                <div class="suggestionContent">
+                    {{suggestion.content}}
+                </div>
+            </div>
+        </uib-tab>
+        <uib-tab heading="Uploads">
+
+        </uib-tab>
+        <uib-tab heading="Favorites">
+
+        </uib-tab>
+    </uib-tabset>
+</section>

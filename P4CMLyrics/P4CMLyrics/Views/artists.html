@@ -1,0 +1,20 @@
+﻿<section>
+    <div class="row">
+        <div class="pull-right">
+            <div class="dropdownButton dropdown" ng-show="user === {}">
+                <a href="/#/profile">Profile</a>
+                <button class="dropdown-toggle" type="button" id="profileMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="profileMenu">
+                    <li>Logout</li>
+                </ul>
+            </div>
+            <div class="login" ng-hide="user === {}">
+                <a ng-click="openModal('signup')">Sign Up</a>
+                <a ng-click="openModal('login')">Login</a>
+            </div>
+        </div>
+    </div>
+    <header-directive></header-directive>
+</section>

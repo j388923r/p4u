@@ -1,0 +1,47 @@
+﻿<section>
+    <header-directive></header-directive>
+
+    <div class="row">
+        <div class="col-md-6 piece">
+            <div class="form-group">
+                <label>Title: </label>
+                <input class="form-control" ng-model="title" placeholder="Title" /><br />
+            </div>
+            <div class="form-group">
+                <label>Youtube Link: </label>
+                <input class="form-control" ng-model="link" placeholder="https://www.youtube.com/watch?v=W3ZDgC705Ck" /><br />
+            </div>
+            <div class="form-group">
+                <label>Artist: </label>
+                <input class="form-control" ng-model="artist" placeholder="Artist" /><br />
+            </div>
+
+            <div class="title"><a href="{{link}}" target="_blank">{{title || "Title placeholder"}}</a></div>
+            <div class=" author">by: {{artist || "Artist placeholder"}}</div>
+            <p class="content">
+                <span ng-repeat="component in components">
+                    <span ng-show="$index !== currentIndex" class="{{component.type}}" ng-bind-html="component.text" ng-click="select($index);"></span>
+                    <span ng-show="$index === currentIndex" class="{{component.type}}" ng-bind-html="component.text" ng-click="select($index);"></span>
+                </span>
+                <span class="currentInput" ng-show="currentIndex === components.length">{{currentComponent.text}}</span>
+            </p>
+            <div>Posted by: {{user.name}} on {{date | date: medium}}</div>
+            <button class="btn btn-default" ng-click="save()">Save</button>
+        </div>
+        <div class="col-md-6 annotation">
+            <label>Line Input Box: </label><br />
+            <textarea ng-model="currentComponent.text" cols="80" ng-change="edit()"></textarea><br />
+            <input type="radio" ng-model="currentComponent.type" value="plain" /> Plain
+            <input type="radio" ng-model="currentComponent.type" value="highlight" /> Annotated
+            <button class="btn btn-default" ng-show="currentIndex === components.length" ng-click="add(currentComponent);">Add Phrase</button>
+            <button class="btn btn-default" ng-show="currentIndex !== components.length" ng-click="add(currentComponent);">Save Edits</button>
+            <button class="btn btn-default" ng-show="currentIndex !== components.length" ng-click="cancel();">Cancel</button>
+
+            <div ng-show="currentComponent.type === 'highlight'">
+                <label for="annotationHTML">Annotation: </label>
+                <textarea rows="20" cols="80" ng-model="currentComponent.annotationHTML"></textarea>
+                <div class="output">{{component.annotationHTML}}</div>
+            </div>
+        </div>
+    </div>
+</section>

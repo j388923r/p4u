@@ -1,0 +1,126 @@
+﻿body {
+  background-color: floralwhite;
+}
+h1 {
+  font-family: 'Open Sans';
+  font-size: 33px;
+  font-style: normal;
+  font-weight: 300;
+  font-stretch: extra-condensed;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+.mainView {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dropdownButton {
+  border-radius: 0;
+  color: black;
+  font-size: large;
+  padding: 10px;
+}
+.dropdownButton a {
+  /*padding: 7px;
+    border-right: 1px solid black;*/
+  color: black;
+  text-decoration: none;
+}
+.dropdownButton button {
+  background: none;
+  -webkit-appearance: media-mute-button;
+}
+.dropdownButton button span {
+  margin: 0;
+}
+.login {
+  border-radius: 0;
+  color: black;
+  font-size: large;
+  padding: 20px;
+}
+.login a {
+  /*padding: 7px;
+    border-right: 1px solid black;*/
+  color: black;
+  text-decoration: none;
+}
+.login a:hover {
+  color: rosybrown;
+  text-decoration: none;
+}
+.annotation {
+  border-left: 1px solid black;
+}
+.annotation .verse {
+  background-color: seashell;
+}
+.annotation .poem {
+  background-color: cornflowerblue;
+}
+.annotation .song {
+  background-color: aquamarine;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  background-color: floralwhite;
+}
+.modal-content {
+  background-color: floralwhite;
+}
+.horizontal-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+.horizontal-list ul li {
+  display: inline;
+  font-size: 20px;
+  padding: 0 15px;
+  border-left: 1px solid black;
+}
+.horizontal-list ul li a {
+  color: black;
+  text-decoration: none;
+}
+.horizontal-list ul li.home {
+  border-left: 0;
+}
+.piece {
+  width: 50%;
+}
+.piece .title {
+  font-size: 30px;
+  font-weight: bold;
+}
+.piece .title a {
+  color: black;
+}
+.piece .artist {
+  font-size: small;
+}
+.piece .content {
+  margin: 20px 0;
+}
+.piece .plain {
+  background-color: none;
+}
+.piece .highlight {
+  background-color: white;
+}
+.piece .currentInput {
+  background-color: greenyellow;
+}
+.piece .highlight:hover {
+  background-color: yellow;
+  color: black;
+  cursor: pointer;
+}
+ul.nav-tabs a {
+  color: black;
+}
+.badge {
+  background-color: darkorange;
+}
+/*# sourceMappingURL=main.css.map */
