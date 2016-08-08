@@ -1,0 +1,10 @@
+﻿<section>
+    <h2>Welcome to Conversation {{conversationId}}</h2>
+    <div class="message_display">
+        <div ng-repeat="message in messages">
+            {{message.text}}
+        </div>
+    </div>
+    <input id="messageInput" ng-model="messageText" type="text" jc-enter="sendMessage(messageTexts)" />
+    <button class="btn btn-default" ng-click="sendMessage(messageText)">Send</button>
+</section>
