@@ -230,6 +230,15 @@ namespace ChessBot.Models
 
         public static bool checkForSelfCheck()
         {
+            if (blackTurn)
+            {
+                return isInCheckBlack(state);
+            }
+            else
+            {
+                return isInCheckWhite(state);
+            }   
+            
             return false;
         }
 
@@ -295,7 +304,7 @@ namespace ChessBot.Models
             int[] byLoc = convertAlgebraicToPoint(byLocation);
             char byPiece = state.currentBoard[byLoc[0], byLoc[1]];
 
-            if (byPiece == eSC)
+            if (byPiece == eSC || Char.IsLower(byPiece) == Char.IsLower(kingPiece))
                 return false;
 
             int i, j = 0;
@@ -313,9 +322,6 @@ namespace ChessBot.Models
                 if (found)
                     break;
             }
-
-            if (Char.IsLower(byPiece) == Char.IsLower(kingPiece))
-                return false;
 
             string kingLocation = convertPointToAlgebraic(new int[] { i, j });
 
