@@ -186,38 +186,38 @@ namespace ChessBot.Models
 
                 currentlyValid = currentlyValid && (path.Count == 0 || isPathClear(path, state));
 
-                return currentlyValid && !checkForSelfCheck();
+                return currentlyValid && !checkForSelfCheck(state, Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]));
             } else if (pieceCharUpper == PieceCharacters.Rook) {
                 bool currentlyValid = isMoveVerticalOrHorizontal(location1, location2, state);
 
                 currentlyValid = currentlyValid && (path.Count == 0 || isPathClear(path, state));
 
-                return currentlyValid && !checkForSelfCheck();
+                return currentlyValid && !checkForSelfCheck(state, Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]));
             } else if (pieceCharUpper == PieceCharacters.Knight)
             {
                 bool currentlyValid = isMoveLShaped(location1, location2, state);
 
-                return currentlyValid && !checkForSelfCheck();
+                return currentlyValid && !checkForSelfCheck(state, Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]));
             } else if (pieceChar == PieceCharacters.Bishop)
             {
                 bool currentlyValid = isMoveDiagonal(location1, location2, state);
 
                 currentlyValid = currentlyValid && (path.Count == 0 || isPathClear(path, state));
 
-                return currentlyValid && !checkForSelfCheck();
+                return currentlyValid && !checkForSelfCheck(state, Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]));
             } else if (pieceCharUpper == PieceCharacters.Queen)
             {
                 bool currentlyValid = isMoveVerticalOrHorizontal(location1, location2, state) || isMoveDiagonal(location1, location2, state);
 
                 currentlyValid = currentlyValid && (path.Count == 0 || isPathClear(path, state));
 
-                return currentlyValid && !checkForSelfCheck();
+                return currentlyValid && !checkForSelfCheck(state, Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]));
             }
             else if (pieceCharUpper == PieceCharacters.King)
             {
                 bool currentlyValid = isMoveOneAway(location1, location2, state);
 
-                return currentlyValid && !checkForSelfCheck();
+                return currentlyValid && !checkForSelfCheck(state, Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]));
             }
             return true;
         }
@@ -228,7 +228,7 @@ namespace ChessBot.Models
             return Char.IsUpper(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]) && state.blackTurn || Char.IsLower(state.currentBoard[moveFromLoc[0], moveFromLoc[1]]) && !state.blackTurn;
         }
 
-        public static bool checkForSelfCheck()
+        public static bool checkForSelfCheck(GameState state, bool blackTurn)
         {
             if (blackTurn)
             {
